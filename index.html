@@ -81,6 +81,16 @@
             margin-right: 10px;
         }
     </style>
+    <script>
+       $(document).ready(function hey() {
+    fetch("http://spartacodingclub.shop/sparta_api/weather/tokyo").then(res => res.json()).then(data => {
+        console.log(data['temp'])
+        let number =data['temp']
+        $('#temp').text(number)
+
+    })
+})
+    </script>
 </head>
 
 
@@ -89,7 +99,8 @@
     <h1>
         人生最高の映画
     </h1>
-    <button>
+    <div>今の気温 : <span id="temp">${number}</span>度</div>
+    <button onclick="hey()">
         映画記録
     </button>
 </div>
@@ -99,9 +110,9 @@
         <label for="floatingInput">映画URL</label>
     </div>
     <div class="input-group mb-3">
-  <label class="input-group-text" for="inputGroupSelect01">Options</label>
+  <label class="input-group-text" for="inputGroupSelect01">採点</label>
   <select class="form-select" id="inputGroupSelect01">
-    <option selected>Choose...</option>
+    <option selected>選択</option>
     <option value="1">⭐</option>
     <option value="2">⭐⭐</option>
     <option value="3">⭐⭐⭐</option>
